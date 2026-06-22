@@ -5,6 +5,13 @@ This file follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and t
 
 ## [Unreleased]
 
+## [1.1.0] — 2026-06-22
+
+### Changed
+
+- Adopt `BaseConnector::resolveProjectKey()` from connector-base `^1.3` for multi-account / project binding. The ingest project key now resolves to the installation's explicit `project_key` when set, otherwise the host's `kb.ingest.default_project` config (itself defaulting to the literal `default`). This replaces the previous `connector-onedrive` synthetic-project fallback so multiple installations can bind to distinct tenant projects.
+- Bump `padosoft/askmydocs-connector-base` requirement to `^1.3`.
+
 ## [1.0.0] - 2026-05-12
 
 ### Added
