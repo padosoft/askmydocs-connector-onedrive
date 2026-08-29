@@ -63,6 +63,8 @@ This package is the smallest possible surface for shipping that integration:
 - 🏢 **Per-tenant isolated** — every credential read and ingestion dispatch is scoped to the active `TenantContext`. Multi-tenant OneDrive deployments work out of the box.
 - 🧪 **Test-friendly** — `Http::fake()` feature tests against the spy ingestion contract; opt-in live test that hits real `graph.microsoft.com` when `CONNECTOR_ONEDRIVE_LIVE=1`.
 
+- **Provenance declaration** — implements `DeclaresProvenance` (connector-base ^1.5), labelling ingested content `TrustedInternal`: a OneDrive/SharePoint tenant the organisation administers, so whoever wrote a document had to be granted the ability to write it. A statement about *authorship*, not about correctness — see the IMAP connector for the contrasting case.
+
 ## 🚀 AI vibe-coding pack included
 
 This package was built with a vibe-coding pack of Claude Code skills and rules (`.claude/` directory in the parent AskMyDocs repo) that codify the architectural invariants — the IoC contract that keeps this package standalone-agnostic, the Microsoft Graph delta-link quirk, the failure-loud exception taxonomy, the bounded folder-recursion contract.
